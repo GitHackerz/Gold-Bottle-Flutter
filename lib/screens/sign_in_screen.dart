@@ -90,7 +90,9 @@ class SignInScreen extends StatelessWidget {
               children: [
                 Expanded(
                   child: FilledButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.pushNamed(context, Routes.main);
+                      },
                       style: ButtonStyle(
                         padding: WidgetStateProperty.all<EdgeInsets>(
                             const EdgeInsets.all(15.0)),

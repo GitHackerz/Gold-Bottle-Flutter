@@ -11,22 +11,21 @@ class IntroScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     List<PageViewModel> pages = [
       PageViewModel(
-        title: "Title of introduction page",
-        body: "Welcome to the app! This is a description of how it works.",
+        title: "Bienvenue sur Bouteille d’Or",
+        body:
+            "Déposez vos bouteilles en plastique dans nos stations intelligentes et contribuez à un monde plus propre. Chaque geste compte pour un avenir durable.",
         image: Image.asset("assets/images/intro.png", height: 300.0),
         decoration: const PageDecoration(
           titleTextStyle: TextStyle(
               color: Colors.white, fontSize: 28.0, fontWeight: FontWeight.bold),
           bodyTextStyle: TextStyle(
-              color: Color(0xFFC8D2DE),
-              fontSize: 16.0,
-              fontWeight: FontWeight.w200),
+              color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w200),
         ),
       ),
       PageViewModel(
-        title: "Title of blue page",
+        title: "Transformez vos bouteilles en récompenses",
         body:
-            "Welcome to the app! This is a description on a page with a blue background.",
+            "En recyclant, gagnez des récompenses sous forme de bons d'achat ou d'argent. Avec Bouteille d’Or, vos efforts écologiques sont gratifiés.",
         image: Container(
           padding: const EdgeInsets.all(50.0),
           child: Image.asset("assets/images/intro2.png", height: 300.0),
@@ -35,15 +34,13 @@ class IntroScreen extends StatelessWidget {
           titleTextStyle: TextStyle(
               color: Colors.white, fontSize: 28.0, fontWeight: FontWeight.bold),
           bodyTextStyle: TextStyle(
-              color: Color(0xFFC8D2DE),
-              fontSize: 16.0,
-              fontWeight: FontWeight.w200),
+              color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w200),
         ),
       ),
       PageViewModel(
-        title: "Title of orange text and bold page",
+        title: "Suivez votre impact",
         body:
-            "This is a description on a page with an orange title and bold, big body.",
+            "Voyez en temps réel combien de plastique vous avez recyclé et l’impact écologique de vos actions. Ensemble, rendons nos villes plus propres !",
         image: const Center(
           child: Text("👋", style: TextStyle(fontSize: 100.0)),
         ),
@@ -51,16 +48,14 @@ class IntroScreen extends StatelessWidget {
           titleTextStyle: TextStyle(
               color: Colors.white, fontSize: 28.0, fontWeight: FontWeight.bold),
           bodyTextStyle: TextStyle(
-              color: Color(0xFFC8D2DE),
-              fontSize: 16.0,
-              fontWeight: FontWeight.w200),
+              color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w200),
         ),
       ),
     ];
 
     return Scaffold(
         body: IntroductionScreen(
-      globalBackgroundColor: const Color(0xFF3B4054),
+      globalBackgroundColor: const Color(0xFF16A666),
       pages: pages,
       onDone: () {
         Navigator.pushNamed(context, Routes.login);
@@ -69,17 +64,20 @@ class IntroScreen extends StatelessWidget {
         Navigator.pushNamed(context, Routes.login);
       },
       showSkipButton: true,
-      skip: const Text("Skip",
-          style:
-              TextStyle(fontWeight: FontWeight.w600, color: Colors.blueAccent)),
-      next: const Icon(Icons.arrow_forward, color: Colors.blueAccent),
-      done: const Text("Done",
-          style:
-              TextStyle(fontWeight: FontWeight.w600, color: Colors.blueAccent)),
+      skip: Text("Skip",
+          style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: Theme.of(context).colorScheme.secondary)),
+      next: Icon(Icons.arrow_forward,
+          color: Theme.of(context).colorScheme.secondary),
+      done: Text("Done",
+          style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: Theme.of(context).colorScheme.secondary)),
       dotsDecorator: DotsDecorator(
         size: const Size(10.0, 10.0),
         color: Colors.white,
-        activeColor: Colors.blueAccent,
+        activeColor: Theme.of(context).colorScheme.secondary,
         activeSize: const Size(22.0, 10.0),
         activeShape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25.0),

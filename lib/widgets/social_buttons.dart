@@ -45,7 +45,7 @@ class SocialButton extends StatelessWidget {
       style: FilledButton.styleFrom(
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
-          backgroundColor: Theme.of(context).colorScheme.secondary),
+          backgroundColor: const Color(0xFFEFEFEF)),
       child: Row(
         children: [
           Image.asset(icon, height: 24.0),
