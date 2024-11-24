@@ -1,9 +1,9 @@
 import 'package:bouteille_dor/core/routes.dart';
-import 'package:bouteille_dor/screens/forgot_password.dart';
+import 'package:bouteille_dor/screens/auth/forgot_password.dart';
+import 'package:bouteille_dor/screens/auth/sign_in_screen.dart';
+import 'package:bouteille_dor/screens/auth/sign_up_screen.dart';
 import 'package:bouteille_dor/screens/intro_screen.dart';
 import 'package:bouteille_dor/screens/main_screen.dart';
-import 'package:bouteille_dor/screens/sign_in_screen.dart';
-import 'package:bouteille_dor/screens/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,16 +16,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
-          primary: const Color(0XFF1DD680),
-          onPrimary: const Color(0xFFFFFFFF),
+          primary: const Color(0XFF18BF67),
+          onPrimary: const Color(0xFFE9FAF1),
           seedColor: const Color(0xFF16A666),
-          secondary: const Color(0xFFA8E6C1),
-          onSecondary: const Color(0xFF2E7D32),
-          surface: const Color(0xFFFFFFFF),
-          onSurface: const Color(0xFF4E342E),
+          secondary: const Color(0xFFECEFF4),
+          onSecondary: const Color(0xFF2E2E2F),
+          surface: const Color(0xFFF9FAFC),
+          onSurface: const Color(0xFF2F2F2F),
         ),
         useMaterial3: true,
       ),

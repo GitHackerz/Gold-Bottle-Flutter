@@ -5,8 +5,8 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class MapScreen extends StatelessWidget {
+  const MapScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,7 @@ class _SmartBinsMapState extends State<SmartBinsMap> {
   LocationData? _currentLocation;
   final Location _locationService = Location();
   late MapController _mapController;
-  bool isMapInitialized = false; // Check if the map has been initialized
+  bool isMapInitialized = false;
 
   @override
   void initState() {
@@ -106,8 +106,7 @@ class _SmartBinsMapState extends State<SmartBinsMap> {
               generateRandomBinMarkers(userLocation, numBins, radiusInKm);
         });
         if (isMapInitialized) {
-          _mapController.move(
-              userLocation, 13.0); // Move map only if initialized
+          _mapController.move(userLocation, 13.0);
         }
       }
     });
@@ -115,31 +114,26 @@ class _SmartBinsMapState extends State<SmartBinsMap> {
 
   Future<LocationData?> _getLocation() async {
     try {
-      bool _serviceEnabled;
-      PermissionStatus _permissionGranted;
+      bool serviceEnabled;
+      PermissionStatus permissionGranted;
 
-      // Enable location services if necessary
-      _serviceEnabled = await _locationService.serviceEnabled();
-      if (!_serviceEnabled) {
-        _serviceEnabled = await _locationService.requestService();
-        if (!_serviceEnabled)
-          throw Exception("Location services are disabled.");
+      serviceEnabled = await _locationService.serviceEnabled();
+      if (!serviceEnabled) {
+        serviceEnabled = await _locationService.requestService();
+        if (!serviceEnabled) throw Exception("Location services are disabled.");
       }
 
-      // Check location permissions
-      _permissionGranted = await _locationService.hasPermission();
-      if (_permissionGranted == PermissionStatus.denied) {
-        _permissionGranted = await _locationService.requestPermission();
-        if (_permissionGranted != PermissionStatus.granted) {
+      permissionGranted = await _locationService.hasPermission();
+      if (permissionGranted == PermissionStatus.denied) {
+        permissionGranted = await _locationService.requestPermission();
+        if (permissionGranted != PermissionStatus.granted) {
           throw Exception("Location permissions are denied.");
         }
       }
 
-      // Get the current location
       _currentLocation = await _locationService.getLocation();
       return _currentLocation;
     } catch (e) {
-      print("Location Error: $e"); // Log the error for debugging
       return null;
     }
   }
@@ -178,8 +172,8 @@ class _SmartBinsMapState extends State<SmartBinsMap> {
       mapController: _mapController,
       options: MapOptions(
         onMapReady: () {
-          isMapInitialized = true; // Set map as initialized
-          _mapController.move(userLocation, 13.0); // Move map only when ready
+          isMapInitialized = true;
+          _mapController.move(userLocation, 13.0);
         },
         initialCenter: userLocation,
         initialZoom: 13.0,

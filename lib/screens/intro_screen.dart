@@ -15,11 +15,15 @@ class IntroScreen extends StatelessWidget {
         body:
             "Déposez vos bouteilles en plastique dans nos stations intelligentes et contribuez à un monde plus propre. Chaque geste compte pour un avenir durable.",
         image: Image.asset("assets/images/intro.png", height: 300.0),
-        decoration: const PageDecoration(
+        decoration: PageDecoration(
           titleTextStyle: TextStyle(
-              color: Colors.white, fontSize: 28.0, fontWeight: FontWeight.bold),
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: 28.0,
+              fontWeight: FontWeight.bold),
           bodyTextStyle: TextStyle(
-              color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w200),
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w200),
         ),
       ),
       PageViewModel(
@@ -30,11 +34,15 @@ class IntroScreen extends StatelessWidget {
           padding: const EdgeInsets.all(50.0),
           child: Image.asset("assets/images/intro2.png", height: 300.0),
         ),
-        decoration: const PageDecoration(
+        decoration: PageDecoration(
           titleTextStyle: TextStyle(
-              color: Colors.white, fontSize: 28.0, fontWeight: FontWeight.bold),
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: 28.0,
+              fontWeight: FontWeight.bold),
           bodyTextStyle: TextStyle(
-              color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w200),
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w200),
         ),
       ),
       PageViewModel(
@@ -44,18 +52,22 @@ class IntroScreen extends StatelessWidget {
         image: const Center(
           child: Text("👋", style: TextStyle(fontSize: 100.0)),
         ),
-        decoration: const PageDecoration(
+        decoration: PageDecoration(
           titleTextStyle: TextStyle(
-              color: Colors.white, fontSize: 28.0, fontWeight: FontWeight.bold),
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: 28.0,
+              fontWeight: FontWeight.bold),
           bodyTextStyle: TextStyle(
-              color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.w200),
+              color: Theme.of(context).colorScheme.onPrimary,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w200),
         ),
       ),
     ];
 
     return Scaffold(
         body: IntroductionScreen(
-      globalBackgroundColor: const Color(0xFF16A666),
+      globalBackgroundColor: Theme.of(context).colorScheme.primary,
       pages: pages,
       onDone: () {
         Navigator.pushNamed(context, Routes.login);

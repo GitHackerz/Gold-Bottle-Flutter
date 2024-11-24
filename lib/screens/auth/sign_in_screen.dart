@@ -1,7 +1,7 @@
 import 'package:bouteille_dor/core/Routes.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/social_buttons.dart';
+import '../../widgets/social_buttons.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -10,7 +10,7 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: const Color(0xFFFFFFFF),
+        color: Theme.of(context).colorScheme.surface,
         alignment: Alignment.center,
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -24,14 +24,15 @@ class SignInScreen extends StatelessWidget {
               ),
               child: Image.asset("assets/images/signin.png", height: 70.0),
             ),
-            const Text("Sign In",
+            Text("Sign In",
                 style: TextStyle(
                     fontSize: 32.0,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF2A4ECA))),
-            const Text(
+                    color: Theme.of(context).colorScheme.primary)),
+            Text(
               "Welcome back! Sign in to continue.",
-              style: TextStyle(fontSize: 14, color: Color(0xFF61677D)),
+              style: TextStyle(
+                  fontSize: 14, color: Theme.of(context).colorScheme.onSurface),
             ),
             const SocialButtons(),
             const SizedBox(height: 20.0),
@@ -44,9 +45,10 @@ class SignInScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 10.0),
-                const Text(
+                Text(
                   "OR",
-                  style: TextStyle(color: Color(0xFF61677D)),
+                  style:
+                      TextStyle(color: Theme.of(context).colorScheme.onSurface),
                 ),
                 const SizedBox(width: 10.0),
                 Expanded(
@@ -97,10 +99,10 @@ class SignInScreen extends StatelessWidget {
                         padding: WidgetStateProperty.all<EdgeInsets>(
                             const EdgeInsets.all(15.0)),
                       ),
-                      child: const Text(
+                      child: Text(
                         "Sign In",
                         style: TextStyle(
-                          color: Color(0xFFFFFFFF),
+                          color: Theme.of(context).colorScheme.onPrimary,
                           fontSize: 16.0,
                         ),
                       )),
@@ -119,10 +121,11 @@ class SignInScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, Routes.register);
                   },
-                  child: const Text(
+                  child: Text(
                     "Sign Up",
                     style: TextStyle(
-                        color: Color(0xFF2A4ECA), fontWeight: FontWeight.bold),
+                        color: Theme.of(context).colorScheme.primary,
+                        fontWeight: FontWeight.bold),
                   ),
                 ),
               ],
